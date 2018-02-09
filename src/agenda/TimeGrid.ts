@@ -165,7 +165,7 @@ export default class TimeGrid extends InteractiveDateComponent {
           sl.end.match(/^[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2})?$/) &&
           true
       })
-      if (slots.length >= 2) { // require at least 2 slots to display properly
+      if (slots.length >= 1) { // require at least 1 slot to display properly
         // sort slots by start time
         slots.sort(function(sl1, sl2) {
           let start1 = moment(sl1.start, 'HH:mm:ss')
@@ -315,7 +315,7 @@ export default class TimeGrid extends InteractiveDateComponent {
       let startTime
       let endTime
       let nextStartTime
-      let breakHtml
+      let breakHtml = ''
       let breakHeight
       let slotHeight
       let start = calendar.msToUtcMoment(dateProfile.renderUnzonedRange.startMs)
@@ -347,7 +347,7 @@ export default class TimeGrid extends InteractiveDateComponent {
           }
         }
         axisHtml =
-          '<td class="fc-axis fc-time ' + view.widgetContentClass + '" ' + view.axisStyleAttr() + '>' +
+          '<td class="fc-axis fc-time ' + theme.getClass('widgetContent') + '" ' + view.axisStyleAttr() + '>' +
           '<div class="fc-timeslots-axis">' + timeHtml + '</div>' +
           '</td>'
 

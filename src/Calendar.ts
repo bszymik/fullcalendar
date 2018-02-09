@@ -1223,7 +1223,9 @@ export default class Calendar {
       let closestEndSlot = this.findClosestSlot(slots, endDate, false)
       endDate = endDate.clone().time(closestEndSlot.end)
 
-      if (endDate.isBefore(startDate)) {
+      // End date can not begin earlier than the start date.
+      if (endDate.isBefore(startDate) || endDate.isSame(startDate)) {
+        // Set the end date to the end of the start slot.
         endDate = endDate.clone().time(closestStartSlot.end)
       }
     }
