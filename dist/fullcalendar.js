@@ -9,9 +9,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["moment", "jquery"], factory);
 	else if(typeof exports === 'object')
-		factory(require("moment"), require("jquery"));
+		exports["FullCalendar"] = factory(require("moment"), require("jquery"));
 	else
-		factory(root["moment"], root["jQuery"]);
+		root["FullCalendar"] = factory(root["moment"], root["jQuery"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_0__, __WEBPACK_EXTERNAL_MODULE_3__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
